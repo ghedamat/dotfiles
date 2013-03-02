@@ -1,0 +1,3 @@
+--type-set=html=.handlebars,.hbs
+--type-set=coffee=.coffee
+--type-set=sass=.sass
