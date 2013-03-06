@@ -44,7 +44,7 @@ unsetopt correct_all # NOT share command history data
 
 
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 #source '/etc/profile'
 #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD/$HOME/~}\007"'
 #PS1=$PS1'$(parse_git_branch "%s")'
@@ -63,3 +63,9 @@ export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
 alias e="emacs -nw"
 alias emacs="emacs -nw"
 
+alias tw="tmux new -s work"
+alias twa="tmux attach -t work"
+alias tp="tmux new -s personal"
+alias tpa="tmux attach -t personal"
+
+export EDITOR=vim
