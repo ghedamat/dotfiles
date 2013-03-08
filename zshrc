@@ -63,9 +63,13 @@ export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
 alias e="emacs -nw"
 alias emacs="emacs -nw"
 
+
+
+# tmux stuff
 alias tw="tmux new -s work"
 alias twa="tmux attach -t work"
 alias tp="tmux new -s personal"
 alias tpa="tmux attach -t personal"
+
 
 export EDITOR=vim
