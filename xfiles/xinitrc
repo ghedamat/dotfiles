@@ -13,3 +13,4 @@ setxkbmap -option ctrl:nocaps
 
 #/usr/local/bin/xflux -l 44 -g 11
 exec /usr/local/bin/wmii -r /home/tha/.wmii/wmiirc
+#exec /usr/bin/enlightenment_start

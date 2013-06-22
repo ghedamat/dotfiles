@@ -29,9 +29,9 @@ ZSH_THEME="simple"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby rbenv rails3 autojump)
+plugins=(git ruby rbenv autojump)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 unsetopt share_history # NOT share command history data
 unsetopt correct_all # NOT share command history data
 
@@ -56,8 +56,8 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin
 
 #source '/usr/local/lib/rvm'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
 unset RUBYOPT
 export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
 alias e="emacs -nw"

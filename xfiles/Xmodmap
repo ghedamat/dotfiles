@@ -8,6 +8,4 @@ keycode 176 = XF86AudioRaiseVolume
 keycode 234 = XF86Back
 keycode 233 = XF86Forward
 keycode 182 = XF86ZoomIn
-remove Lock = Caps_Lock
-remove Control = 0x38
 add Control = Caps_Lock
