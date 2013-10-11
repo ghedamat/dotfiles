@@ -12,5 +12,7 @@ setxkbmap -option ctrl:nocaps
 #/usr/local/bin/dropbox.py start
 
 #/usr/local/bin/xflux -l 44 -g 11
+eval `ssh-agent`
+ssh-add
 exec /usr/local/bin/wmii -r /home/tha/.wmii/wmiirc
 #exec /usr/bin/enlightenment_start
