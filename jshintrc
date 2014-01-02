@@ -18,6 +18,7 @@
       "$": false,
       "jQuery": false,
       "_": false,
-      "Handlebars": false
+      "Handlebars": false,
+      "Ember": false
     }
 }

@@ -10,9 +10,11 @@ setxkbmap -option ctrl:nocaps
 #xrdb -load /home/tha/.Xresources
 #/home/tha/.dropbox-dist/dropbox &
 #/usr/local/bin/dropbox.py start
+/usr/local/bin/rescuetime &
 
 /usr/local/bin/xflux -l 43.654692 -g -79.418367
 eval `ssh-agent`
 ssh-add
-exec /usr/local/bin/wmii -r /home/tha/.wmii/wmiirc
+#exec /usr/local/bin/wmii -r /home/tha/.wmii/wmiirc
 #exec /usr/bin/enlightenment_start
+exec /usr/bin/i3

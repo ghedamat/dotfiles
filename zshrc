@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export PATH="$HOME/.rbenv/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin:$PATH"
 
 unsetopt share_history # NOT share command history data
 unsetopt correct_all # NOT share command history data
@@ -36,8 +36,10 @@ export TERM=xterm-256color
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin
+export PATH=$PATH:/home/tha/Dev/GO/bin
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
+export GOPATH=/home/tha/Dev/GO
 
 #source '/usr/local/lib/rvm'
 #export PATH="$HOME/.rbenv/bin:$PATH"
@@ -71,3 +73,6 @@ alias v='f -e vim' # quick opening files with vim
 stty stop undef
 stty start undef
 setopt noflowcontrol
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH="/usr/local/heroku/bin:$PATH"
