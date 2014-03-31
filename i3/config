@@ -169,23 +169,30 @@ bindsym $mod+Shift+comma move scratchpad
 # # Show the first scratchpad window
 bindsym $mod+comma scratchpad show
 
-# Colors
-# class                 border  backgr. text
-#client.focused          #525252 #1E1E1E #F5DEB3
-#client.focused_inactive #333333 #0F0F0F #E3CCA1
-#client.unfocused        #333333 #010101 #85753A
-#client.urgent           #856E23 #900000 #F5DEB3
+# Solarized Colors
+# class border backgr. text indicator
+client.focused #cb4b16 #cb4b16 #fdf6e3
+client.focused_inactive #657b83 #657b83 #fdf6e3
+client.unfocused #586e75 #586e75 #eee8d5
+client.urgent #dc322f #dc322f #fdf6e3
 
+  #status_command /home/tha/Dev/VAR/i3status/h2status
+  #status_command /home/tha/Dev/VAR/i3status/i3status
+  #status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/test.rb
+  #status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/go-i3status
 bar {
   position top
-  status_command /home/tha/Dev/VAR/i3status/i3status
+  status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/go-i3status
+  #status_command /home/tha/Dev/VAR/i3status/i3status
   colors {
-#    background #0F0F0F
-#    statusline #F5DEB3
-
-#    focused_workspace  #F5DEB3 #666666
-#    active_workspace   #F5DEB3 #0F0F0F
-#    inactive_workspace #F5DEB3 #1E1E1E
-#    urgent_workspace   #ffffff #900000
+     background #073642
+     statusline #eee8d5
+     focused_workspace #cb4b16 #cb4b16 #eee8d5
+     active_workspace #cb4b16 #cb4b16 #eee8d5
+     inactive_workspace #b58900 #b58900 #eee8d5
   }
 }
+
+bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
