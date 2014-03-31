@@ -70,9 +70,29 @@ alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 alias v='f -e vim' # quick opening files with vim
 
+alias vi='vim'
+
 stty stop undef
 stty start undef
 setopt noflowcontrol
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH="/usr/local/heroku/bin:$PATH"
+
+
+case $TERM in
+  screen*)
+    precmd(){
+      # Restore tmux-title to 'zsh'
+      printf "\033kzsh\033\\"
+      # Restore urxvt-title to 'zsh'
+      print -Pn "\e]2;zsh:%~\a"
+    }
+    preexec(){
+      # set tmux-title to running program
+      printf "\033k$(echo "$1" | cut -d" " -f1)\033\\"
+      # set urxvt-title to running program
+      print -Pn "\e]2;zsh:$(echo "$1" | cut -d" " -f1)\a"
+                }
+    ;;
+esac
