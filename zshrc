@@ -5,6 +5,10 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+/Users/tha/Gentoo/startprefix
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -37,11 +41,10 @@ export TERM=xterm-256color
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin
 export PATH=$PATH:/home/tha/Dev/GO/bin
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/nvim
 export VISUAL=/usr/bin/vim
 export GOPATH=/home/tha/Dev/GO
 
-#source '/usr/local/lib/rvm'
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #eval "$(rbenv init -)"
 unset RUBYOPT
@@ -52,31 +55,27 @@ alias emacs="emacs -nw"
 
 
 # tmux stuff
-alias tw="tmux new -s work"
-alias twa="tmux attach -t work"
-alias tp="tmux new -s personal"
-alias tpa="tmux attach -t personal"
+alias t="tmuxinator"
+alias ts="tmuxinator s"
+alias tu="tmuxinator ungc"
+alias tl="tmuxinator lb"
+
+alias gt="git-commit -t"
+alias gp="git-commit -p"
+alias gc="git-commit -c"
 
 
 export EDITOR=vim
 
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
-alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias zz='fasd_cd -d -i' # cd with interactive selection
-alias v='f -e vim' # quick opening files with vim
 
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 
 stty stop undef
 stty start undef
 setopt noflowcontrol
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH="/usr/local/heroku/bin:$PATH"
 
 
@@ -96,3 +95,15 @@ case $TERM in
                 }
     ;;
 esac
+
+alias browserstack="/home/tha/node_modules/browserstack-cli/bin/cli.js"
+
+
+
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:$HOME/node_modules/.bin"
+export LANG=en_US.UTF-8
+
+source /Users/tha/Gentoo/etc/profile.d/autojump.sh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

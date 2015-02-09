@@ -149,7 +149,8 @@ bindsym $mod+r mode "resize"
 
 # default settings layout
 workspace_layout tabbed
-font pango:Sans 8
+#font pango:Sans 8
+font -*-terminus-*-*-normal-*-12-*-*-*-*-*-*-*
 #new_window pixel 1
 
 for_window [class="Pidgin"] layout splith
@@ -176,10 +177,6 @@ bindsym $mod+comma scratchpad show
 
 # Solarized Colors
 # class border backgr. text indicator
-client.focused #cb4b16 #cb4b16 #fdf6e3
-client.focused_inactive #657b83 #657b83 #fdf6e3
-client.unfocused #586e75 #586e75 #eee8d5
-client.urgent #dc322f #dc322f #fdf6e3
 
   #status_command /home/tha/Dev/VAR/i3status/h2status
   #status_command /home/tha/Dev/VAR/i3status/i3status
@@ -190,11 +187,13 @@ bar {
   status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/go-i3status
   #status_command /home/tha/Dev/VAR/i3status/i3status
   colors {
-     background #073642
-     statusline #eee8d5
-     focused_workspace #cb4b16 #cb4b16 #eee8d5
-     active_workspace #cb4b16 #cb4b16 #eee8d5
-     inactive_workspace #b58900 #b58900 #eee8d5
+    separator #666666
+    background #222222
+    statusline #dddddd
+    focused_workspace #0088CC #0088CC #ffffff
+    active_workspace #333333 #333333 #ffffff
+    inactive_workspace #333333 #333333 #888888
+    urgent_workspace #2f343a #900000 #ffffff
   }
 }
 
@@ -203,8 +202,12 @@ bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 
 exec i3-sensible-terminal
-exec firefox
+exec firefox-bin
 exec chrome
 exec skype
 exec pidgin
 exec brochat
+client.focused #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused #333333 #333333 #888888 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
