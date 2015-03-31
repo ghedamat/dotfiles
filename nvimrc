@@ -31,18 +31,21 @@ Plugin 'tpope/vim-haml'
 Plugin 'Lokaltog/vim-powerline'
 
 Plugin 'tpope/vim-fugitive'
+
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-leiningen'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+"Plugin 'tpope/vim-leiningen'
+"Plugin 'tpope/vim-dispatch'
+"Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-classpath'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-repeat'
+"Plugin 'tpope/vim-surround'
 Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-sexp'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'vim-scripts/paredit.vim'
+"Plugin 'kien/rainbow_parentheses.vim'
+"Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+"Plugin 'guns/vim-sexp'
+"Plugin 'dgrnbrg/vim-redl'
 
 Plugin 'Shutnik/jshint2.vim'
 
@@ -54,6 +57,8 @@ Plugin 'wting/rust.vim'
 
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/vimshell.vim'
+
+Plugin 'osyo-manga/vim-over'
 
 call vundle#end()    
 
@@ -89,10 +94,10 @@ let mapleader=","
 let maplocalleader="\\"
 nnoremap <leader><leader> <c-^>
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 let g:ctrlp_map = '<leader>f'
 
@@ -239,3 +244,16 @@ set wildignore+=bower_components/**
 set wildignore+=node_modules/**
 set wildignore+=tmp/**
 set wildignore+=gems/**
+
+let g:redl_use_vsplit = 1
+
+
+function! VisualFindAndReplace()
+  :OverCommandLine%s/
+endfunction
+function! VisualFindAndReplaceWithSelection() range
+  :'<,'>OverCommandLine s/
+endfunction
+
+nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
+xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
