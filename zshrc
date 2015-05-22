@@ -71,6 +71,9 @@ export EDITOR=vim
 alias vi='nvim'
 alias vim='nvim'
 
+# utils
+alias today='git log --committer="ghedamat" --since="6am" --format=%s'
+
 stty stop undef
 stty start undef
 setopt noflowcontrol
