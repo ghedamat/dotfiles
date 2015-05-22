@@ -60,6 +60,9 @@ Plugin 'Shougo/vimshell.vim'
 
 Plugin 'osyo-manga/vim-over'
 
+
+Plugin 'elixir-lang/vim-elixir'
+
 call vundle#end()    
 
 
