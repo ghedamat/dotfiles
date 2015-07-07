@@ -63,6 +63,8 @@ Plugin 'osyo-manga/vim-over'
 
 Plugin 'elixir-lang/vim-elixir'
 
+Bundle 'farseer90718/vim-taskwarrior'
+
 call vundle#end()    
 
 
