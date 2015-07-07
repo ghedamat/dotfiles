@@ -100,6 +100,7 @@ case $TERM in
 esac
 
 alias browserstack="/home/tha/node_modules/browserstack-cli/bin/cli.js"
+alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
 
 
 
