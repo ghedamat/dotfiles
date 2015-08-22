@@ -95,7 +95,7 @@ set showtabline=2
 set winwidth=79
 " This makes RVM work inside Vim. I have no idea why.
 set shell=zsh
-let mapleader=","
+let mapleader=" "
 let maplocalleader="\\"
 nnoremap <leader><leader> <c-^>
 
@@ -167,7 +167,7 @@ augroup END
 
 " global mappings ---------------------- {{{
 
-inoremap jk <Esc>
+"inoremap jk <Esc>
 
 " nerdtree
 nnoremap <silent> <F9> :NERDTree<CR>
@@ -195,7 +195,7 @@ vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
 nnoremap H 0
 nnoremap L $
-nnoremap K <silent>
+"nnoremap K <silent>
 
 " adding movements
 " inside next parens
@@ -244,9 +244,11 @@ set backspace=indent,eol,start
 
 " IGNORED PATHS
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*.o,*.obj,.git,node_modules
-set wildignore+=bower_components/**
-set wildignore+=node_modules/**
+set wildignore+=*.o,*.obj,.git
+set wildignore+=**/bower_components/**
+set wildignore+=**/node_modules/**
+set wildignore+=public/system/**
+set wildignore+=db/sphinx/**
 set wildignore+=tmp/**
 set wildignore+=gems/**
 
