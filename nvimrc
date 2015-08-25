@@ -97,7 +97,7 @@ set showtabline=2
 set winwidth=79
 " This makes RVM work inside Vim. I have no idea why.
 set shell=zsh
-let mapleader=" "
+let mapleader=","
 let maplocalleader="\\"
 nnoremap <leader><leader> <c-^>
 
@@ -266,3 +266,16 @@ endfunction
 
 nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
+
+if executable("ag")
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+
+    " Use Ag over Grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 1
+endif
