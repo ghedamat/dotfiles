@@ -28,7 +28,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'tpope/vim-haml' 
 
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 
 Plugin 'tpope/vim-fugitive'
 
@@ -114,8 +114,9 @@ augroup END
 noremap <silent> <F11> :cal VimCommanderToggle()<CR>
 
 " status line customization ---------------------- {{{
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+set guifont=InputMono:h12
 let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
 set encoding=utf-8
 set termencoding=utf-8
 
