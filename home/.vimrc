@@ -28,9 +28,12 @@ Plugin 'tpope/vim-bundler'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'tpope/vim-haml' 
 
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'tpope/vim-cucumber.git'
+Plugin 'godlygeek/tabular.git'
 
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fireplace'
@@ -65,7 +68,11 @@ Plugin 'osyo-manga/vim-over'
 
 Plugin 'elixir-lang/vim-elixir'
 
-Bundle 'farseer90718/vim-taskwarrior'
+Plugin 'groenewege/vim-less'
+
+"Plugin 'kassio/neoterm'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()    
 
@@ -100,13 +107,7 @@ set shell=zsh
 let mapleader=","
 let maplocalleader="\\"
 nnoremap <leader><leader> <c-^>
-
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
-
-let g:ctrlp_map = '<leader>f'
+let g:CommandTTraverseSCM='pwd'
 
 augroup filetypedetect
   au! BufRead,BufNewFile *nc setfiletype nc
@@ -114,8 +115,9 @@ augroup END
 noremap <silent> <F11> :cal VimCommanderToggle()<CR>
 
 " status line customization ---------------------- {{{
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+set guifont=InputMono:h12
 let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
 set encoding=utf-8
 set termencoding=utf-8
 
@@ -128,13 +130,6 @@ set t_Co=256 " 256 colors
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-
-
-" open files in directories of current file
-cnoremap %% <C-R>=expand('%-h').'/'<cr>
-map <leader>e :edit %%
-map <leader>v :view %%
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
@@ -169,7 +164,16 @@ augroup END
 
 " global mappings ---------------------- {{{
 
-"inoremap jk <Esc>
+" fzf settings
+set rtp+=~/.fzf
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+nnoremap <leader>f :FZF<cr>
+nnoremap <leader>b :Buffers<cr>
+
+
+inoremap jk <Esc>
 
 " nerdtree
 nnoremap <silent> <F9> :NERDTree<CR>
@@ -267,15 +271,15 @@ endfunction
 nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
-if executable("ag")
-    let g:ackprg = 'ag --nogroup --nocolor --column'
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-    " Use Ag over Grep
-    set grepprg=ag\ --nogroup\ --nocolor
-
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 1
-endif
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
