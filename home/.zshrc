@@ -124,3 +124,5 @@ alias vim=nvim
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -s "/Users/tha/.scm_breeze/scm_breeze.sh" ] && source "/Users/tha/.scm_breeze/scm_breeze.sh"
