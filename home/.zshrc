@@ -118,9 +118,6 @@ alias gc="git-commit -c"
 alias vi='vim'
 alias today='git log --committer="ghedamat" --since="6am" --format=%s'
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
-alias vim=nvim
-
-
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

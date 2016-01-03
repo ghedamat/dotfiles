@@ -9,7 +9,6 @@ runtime macros/matchit.vim
 Plugin 'tomtom/tcomment_vim' 
 Plugin 'scrooloose/nerdtree' 
 Plugin 'bronson/vim-trailing-whitespace' 
-"Plugin 'wincent/command-t' 
 Plugin 'ctrlp.vim'
 Plugin 'mileszs/ack.vim' 
 Plugin 'Blackrush/vim-gocode' 
@@ -73,6 +72,7 @@ Plugin 'groenewege/vim-less'
 "Plugin 'kassio/neoterm'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()    
 
@@ -153,11 +153,6 @@ autocmd! BufRead,BufNewFile *.sass setfiletype sass
 autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
 autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
 
-" Indent p tags
-
-" Don't syntax highlight markdown because it's often wrong
-autocmd! FileType mkd setlocal syn=off
-
 augroup END
 
 
@@ -209,16 +204,6 @@ onoremap in( :<c-u>normal! f(vi(<cr>
 " inside last parens
 onoremap il( :<c-u>normal! F)vi(<cr>
 
-" Vimwiki keys
-nnoremap <leader>wd :VimwikiDiaryIndex<cr>
-augroup my_vimwiki
-  autocmd!
-  " mark task as done
-  autocmd BufNewFile,BufRead *.wiki nnoremap <leader>wm ^i_<esc>A_<esc>0
-  " unmark task
-  autocmd BufNewFile,BufRead *.wiki nnoremap <leader>wu 0x$x0
-augroup END
-
 "vimux mappings
 nnoremap <leader>rc :VimuxPromptCommand<cr>
 nnoremap <leader>rl :RunLastVimTmuxCommand<cr>
@@ -260,7 +245,7 @@ set wildignore+=gems/**
 
 let g:redl_use_vsplit = 1
 
-
+" visual find replace
 function! VisualFindAndReplace()
   :OverCommandLine%s/
 endfunction
@@ -271,6 +256,7 @@ endfunction
 nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
+" tabular align
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 function! s:align()
