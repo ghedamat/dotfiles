@@ -28,6 +28,7 @@ Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'tpope/vim-haml' 
 
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-fugitive'
 
