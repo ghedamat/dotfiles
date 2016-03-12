@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tha/.oh-my-zsh
+export ZSH=/Users/ghedamat/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -51,7 +51,7 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump)
+plugins=(git autojump rbenv)
 
 source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
@@ -87,24 +87,21 @@ esac
 
 
 
-PERL_MB_OPT="--install_base \"/Users/tha/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/tha/perl5"; export PERL_MM_OPT;
+PERL_MB_OPT="--install_base \"/Users/ghedamat/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/ghedamat/perl5"; export PERL_MM_OPT;
 
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export LANG=en_US.UTF-8
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin
-export PATH=$PATH:/Users/tha/Dev/GO/bin
+export PATH=$PATH:/Users/ghedamat/Dev/GO/bin
 export PATH="$PATH:$NPM_GLOBAL/bin"
-export PATH="$PATH:/Users/tha/Dev/APPCANARY/datomic-pro-0.9.5173/bin"
-export PATH="$PATH:/Users/tha/Dev/GO/go/bin"
+export PATH="$PATH:/Users/ghedamat/Dev/APPCANARY/datomic-pro-0.9.5173/bin"
+export PATH="$PATH:/Users/ghedamat/Dev/GO/go/bin"
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
 export VISUAL=/usr/bin/vim
-export GOPATH=/Users/tha/Dev/GO
+export GOPATH=/Users/ghedamat/Dev/GO
 export EDITOR=vim
 export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
 
@@ -122,4 +119,4 @@ alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -s "/Users/tha/.scm_breeze/scm_breeze.sh" ] && source "/Users/tha/.scm_breeze/scm_breeze.sh"
+[ -s "/Users/ghedamat/.scm_breeze/scm_breeze.sh" ] && source "/Users/ghedamat/.scm_breeze/scm_breeze.sh"
