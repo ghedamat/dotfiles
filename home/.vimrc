@@ -73,7 +73,6 @@ Plugin 'groenewege/vim-less'
 "Plugin 'kassio/neoterm'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()    
 
