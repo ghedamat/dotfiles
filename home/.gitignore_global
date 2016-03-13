@@ -4,3 +4,5 @@ tmp
 tags
 gems.tags
 .tern-port
+*/**/.tern-port
+dump.rdb
