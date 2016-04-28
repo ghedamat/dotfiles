@@ -36,8 +36,8 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     version-control
      (ruby :variables
+           ruby-enable-enh-ruby-mode t
            ruby-test-runner 'rspec
            ruby-version-manager 'rbenv)
      ruby-on-rails
@@ -256,16 +256,59 @@ in `dotspacemacs/user-config'."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
-(defun dotspacemacs/user-config ()
+
+
+(defun dotspacemacs/config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (setq-default evil-escape-key-sequence "jk")
-  (setq tab-width 2)
   (define-key evil-normal-state-map "H" "^")
   (define-key evil-normal-state-map "L" "$")
   (define-key evil-normal-state-map (kbd "SPC SPC") 'switch-to-previous-buffer)
+
+  (indent-guide-global-mode)
+
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2)
+
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
+
+  ;; Indentation from
+  ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
+  (defun my-setup-indent (n)
+    ;; web development
+    (setq coffee-tab-width n) ; coffeescript
+    (setq javascript-indent-level n) ; javascript-mode
+    (setq js-indent-level n) ; js-mode
+    (setq js2-basic-offset n) ; js2-mode
+    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+    (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+    (setq css-indent-offset n) ; css-mode
+    )
+
+  (defun my-personal-code-style ()
+    (interactive)
+    (message "Indentation set to two")
+    (setq indent-tabs-mode nil) ; use space instead of tab
+    (my-setup-indent 2) ; indent 2 spaces width
+    )
+
+  ;; call indentation
+    (my-personal-code-style)
   )
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
