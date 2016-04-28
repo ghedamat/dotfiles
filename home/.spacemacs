@@ -4,8 +4,8 @@
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
-You should not put any user code in this function besides modifying the variable
-values."
+ You should not put any user code in this function besides modifying the variable
+ values."
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
@@ -45,6 +45,11 @@ values."
                  js2-basic-offset 2
                  js-indent-level 2)
      html
+     haskell
+     osx
+     auto-completion
+     elixir
+     erlang
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -54,7 +59,9 @@ values."
    '(key-chord
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    yasnippet
+                                    )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -62,10 +69,10 @@ values."
 
 (defun dotspacemacs/init ()
   "Initialization function.
-This function is called at the very startup of Spacemacs initialization
-before layers configuration.
-You should not put any user code in there besides modifying the variable
-values."
+ This function is called at the very startup of Spacemacs initialization
+ before layers configuration.
+ You should not put any user code in there besides modifying the variable
+ values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -247,9 +254,9 @@ values."
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
-It is called immediately after `dotspacemacs/init'.  You are free to put almost
-any user code here.  The exception is org related code, which should be placed
-in `dotspacemacs/user-config'."
+ It is called immediately after `dotspacemacs/init'.  You are free to put almost
+ any user code here.  The exception is org related code, which should be placed
+ in `dotspacemacs/user-config'."
   )
 
 (defun switch-to-previous-buffer ()
@@ -257,17 +264,41 @@ in `dotspacemacs/user-config'."
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 
+;; Indentation from
+;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
+(defun my-setup-indent (n)
+  ;; web development
+  (setq coffee-tab-width n) ; coffeescript
+  (setq javascript-indent-level n) ; javascript-mode
+  (setq js-indent-level n) ; js-mode
+  (setq js2-basic-offset n) ; js2-mode
+  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq css-indent-offset n) ; css-mode
+  )
+
+(defun my-personal-code-style ()
+  (interactive)
+  (message "Indentation set to two")
+  (setq indent-tabs-mode nil) ; use space instead of tab
+  (my-setup-indent 2) ; indent 2 spaces width
+  )
 
 (defun dotspacemacs/config ()
   "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration. You are free to put any user code."
+ This function is called at the very end of Spacemacs initialization after
+ layers configuration. You are free to put any user code."
   (define-key evil-normal-state-map "H" "^")
   (define-key evil-normal-state-map "L" "$")
   (define-key evil-normal-state-map (kbd "SPC SPC") 'switch-to-previous-buffer)
-
   (indent-guide-global-mode)
-
+  (global-company-mode)
+  (setq-default evil-escape-key-sequence "jk")
+  (setq tab-width 2)
+  (setq backup-by-copying t
+        make-backup-files nil
+        create-lockfiles nil)
   (setq-default
    ;; js2-mode
    js2-basic-offset 2
@@ -284,31 +315,10 @@ layers configuration. You are free to put any user code."
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
 
-  ;; Indentation from
-  ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
-  (defun my-setup-indent (n)
-    ;; web development
-    (setq coffee-tab-width n) ; coffeescript
-    (setq javascript-indent-level n) ; javascript-mode
-    (setq js-indent-level n) ; js-mode
-    (setq js2-basic-offset n) ; js2-mode
-    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
-    (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-    (setq css-indent-offset n) ; css-mode
-    )
-
-  (defun my-personal-code-style ()
-    (interactive)
-    (message "Indentation set to two")
-    (setq indent-tabs-mode nil) ; use space instead of tab
-    (my-setup-indent 2) ; indent 2 spaces width
-    )
-
   ;; call indentation
-    (my-personal-code-style)
+  (my-personal-code-style)
+  (setq neo-theme 'nerd)
+  (setq-default flycheck-disabled-checkers '(javascript-jscs))
   )
-
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

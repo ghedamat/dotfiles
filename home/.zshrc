@@ -100,6 +100,7 @@ export PATH="$PATH:/Users/ghedamat/Dev/GO/go/bin"
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="~/.ansible-env/bin:$PATH"
 export VISUAL=/usr/bin/vim
 export GOPATH=/Users/ghedamat/Dev/GO
 export EDITOR=vim
