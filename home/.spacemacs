@@ -4,8 +4,8 @@
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
- You should not put any user code in this function besides modifying the variable
- values."
+You should not put any user code in this function besides modifying the variable
+values."
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
@@ -69,10 +69,10 @@
 
 (defun dotspacemacs/init ()
   "Initialization function.
- This function is called at the very startup of Spacemacs initialization
- before layers configuration.
- You should not put any user code in there besides modifying the variable
- values."
+This function is called at the very startup of Spacemacs initialization
+before layers configuration.
+You should not put any user code in there besides modifying the variable
+values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -254,15 +254,15 @@
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
- It is called immediately after `dotspacemacs/init'.  You are free to put almost
- any user code here.  The exception is org related code, which should be placed
- in `dotspacemacs/user-config'."
+It is called immediately after `dotspacemacs/init'.  You are free to put almost
+any user code here.  The exception is org related code, which should be placed
+in `dotspacemacs/user-config'."
   )
 
-(defun switch-to-previous-buffer ()
+(defun alternate-buffer ()
+  "Alternate between the current buffer and the previous."
   (interactive)
-  (switch-to-buffer (other-buffer (current-buffer) 1)))
-
+    (switch-to-buffer (caar (window-prev-buffers))))
 
 ;; Indentation from
 ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
@@ -285,20 +285,19 @@
   (my-setup-indent 2) ; indent 2 spaces width
   )
 
-(defun dotspacemacs/config ()
+
+(defun dotspacemacs/user-config ()
   "Configuration function for user code.
- This function is called at the very end of Spacemacs initialization after
- layers configuration. You are free to put any user code."
+This function is called at the very end of Spacemacs initialization after
+layers configuration. You are free to put any user code."
   (define-key evil-normal-state-map "H" "^")
   (define-key evil-normal-state-map "L" "$")
-  (define-key evil-normal-state-map (kbd "SPC SPC") 'switch-to-previous-buffer)
-  (indent-guide-global-mode)
+  (define-key evil-normal-state-map (kbd "SPC SPC") 'alternate-buffer)
   (global-company-mode)
   (setq-default evil-escape-key-sequence "jk")
-  (setq tab-width 2)
-  (setq backup-by-copying t
-        make-backup-files nil
-        create-lockfiles nil)
+
+  ;(indent-guide-global-mode)
+
   (setq-default
    ;; js2-mode
    js2-basic-offset 2
@@ -314,9 +313,15 @@
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
+  (setq tab-width 2)
+  (setq backup-by-copying t
+        make-backup-files nil
+        create-lockfiles nil)
+
 
   ;; call indentation
   (my-personal-code-style)
+  (setq-default create-lockfiles nil)
   (setq neo-theme 'nerd)
   (setq-default flycheck-disabled-checkers '(javascript-jscs))
   )
