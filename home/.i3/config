@@ -158,9 +158,10 @@ for_window [class="Skype"] split vertical
 for_window [class="Pidgin"] split vertical
 
 assign [class="Firefox"] 2: web
-assign [class="Chrome"] 2: web
+assign [class="Google Chrome"] 2: web
 assign [class="Skype"] 3: chat
 assign [class="Pidgin"] 3: chat
+assign [class="Telegram"] 3: chat
 assign [title="general | brochat Slack"] |
 
 bindsym $mod+n workspace next
@@ -184,8 +185,7 @@ bindsym $mod+comma scratchpad show
   #status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/go-i3status
 bar {
   position top
-  status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/go-i3status
-  #status_command /home/tha/Dev/VAR/i3status/i3status
+  status_command i3status
   colors {
     separator #666666
     background #222222
@@ -201,12 +201,10 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 
+#exec btsync
 exec i3-sensible-terminal
-exec firefox-bin
-exec chrome
-exec skype
-exec pidgin
-exec brochat
+#exec google-chrome
+#exec Telegram
 client.focused #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e
 client.unfocused #333333 #333333 #888888 #292d2e

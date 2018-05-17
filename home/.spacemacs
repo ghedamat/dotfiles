@@ -18,6 +18,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     ansible
+     sql
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -29,16 +31,20 @@ values."
      git
      markdown
      org
+     (typescript :variables
+                 typescript-fmt-tool 'typescript-formatter
+                 typescript-fmt-on-save t)
+     themes-megapack
      (shell :variables
             shell-default-shell 'eshell)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     syntax-checking
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-test-runner 'rspec
+           enh-ruby-add-encoding-comment-on-save nil
            ruby-version-manager 'rbenv)
      ruby-on-rails
      (javascript :variables
@@ -47,10 +53,17 @@ values."
      html
      haskell
      osx
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-snippets-in-popup t)
+     (syntax-checking :variables
+                      syntax-checking-enable-tooltips nil)
      elixir
      erlang
      yaml
+     (elm :variables
+          elm-reactor-port "8000"          ; default 8000
+          elm-reactor-address "192.168.0.22")
      (org :variables
                  org-enable-github-support t)
      react
@@ -61,6 +74,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(key-chord
+     ember-mode
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -118,12 +132,12 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(monokai
+                         spacemacs-dark
                          spacemacs-light
                          solarized-light
                          solarized-dark
                          leuven
-                         monokai
                          zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -328,6 +342,23 @@ layers configuration. You are free to put any user code."
   (setq-default create-lockfiles nil)
   (setq neo-theme 'nerd)
   (setq-default flycheck-disabled-checkers '(javascript-jscs))
+
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-elm))
   )
+
+(global-set-key (kbd "C-h") 'delete-backward-char)
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/TODOs.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

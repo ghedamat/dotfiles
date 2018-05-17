@@ -1,7 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.nvim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 runtime macros/matchit.vim
@@ -73,6 +73,9 @@ Plugin 'groenewege/vim-less'
 "Plugin 'kassio/neoterm'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+
+Plugin 'hashivim/vim-terraform'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()    
 

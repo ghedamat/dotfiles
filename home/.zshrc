@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ghedamat/.oh-my-zsh
+export ZSH=/home/ghedamat/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -114,6 +114,7 @@ alias gt="git-commit -t"
 alias gp="git-commit -p"
 alias gc="git-commit -c"
 alias vi='vim'
+alias emacs='emacs -nw'
 alias today='git log --committer="ghedamat" --since="6am" --format=%s'
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
 
