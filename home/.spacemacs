@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
      ansible
      sql
      ;; ----------------------------------------------------------------
@@ -75,6 +76,7 @@ values."
    dotspacemacs-additional-packages
    '(key-chord
      ember-mode
+     (vue-mode :location (recipe :fetcher github :repo "codefalling/vue-mode"))
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
