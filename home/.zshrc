@@ -5,7 +5,7 @@ export ZSH=/home/ghedamat/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="simple"
+ZSH_THEME="fwalch"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
@@ -54,6 +54,7 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 plugins=(git autojump rbenv)
 
 source $ZSH/oh-my-zsh.sh
+
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
@@ -121,20 +122,14 @@ alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -s "/Users/ghedamat/.scm_breeze/scm_breeze.sh" ] && source "/Users/ghedamat/.scm_breeze/scm_breeze.sh"
-
 export NVM_DIR="/home/ghedamat/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# added by travis gem
-[ -f /home/ghedamat/.travis/travis.sh ] && source /home/ghedamat/.travis/travis.sh
-
 
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
+
 ssh-add -l 2>/dev/null >/dev/null
 if [ $? -ge 2 ]; then
   echo "started"
   ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 fi
-
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
