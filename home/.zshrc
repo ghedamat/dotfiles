@@ -86,6 +86,18 @@ case $TERM in
     ;;
 esac
 
+color-ssh() {
+	trap "colorterm.sh" INT EXIT
+	if [[ "$*" =~ "prod" ]]; then
+			colorterm.sh prod
+	elif [[ "$*" =~ "dev" ]]; then
+			colorterm.sh dev
+	else
+			colorterm.sh other
+	fi
+	ssh $*
+}
+compdef _ssh color-ssh=ssh
 
 
 PERL_MB_OPT="--install_base \"/Users/ghedamat/perl5\""; export PERL_MB_OPT;
@@ -96,11 +108,10 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin
 export PATH=$PATH:/Users/ghedamat/Dev/GO/bin
 export PATH="$PATH:$NPM_GLOBAL/bin"
-export PATH="$PATH:/Users/ghedamat/Dev/APPCANARY/datomic-pro-0.9.5173/bin"
-export PATH="$PATH:/Users/ghedamat/Dev/GO/go/bin"
-export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/bin"
 export PATH="~/.ansible-env/bin:$PATH"
 export VISUAL=/usr/bin/vim
 export GOPATH=/Users/ghedamat/Dev/GO
@@ -118,7 +129,7 @@ alias vi='vim'
 alias emacs='emacs -nw'
 alias today='git log --committer="ghedamat" --since="6am" --format=%s'
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
-
+alias ssh=color-ssh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
