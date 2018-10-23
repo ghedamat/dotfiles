@@ -104,7 +104,7 @@ PERL_MB_OPT="--install_base \"/Users/ghedamat/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/ghedamat/perl5"; export PERL_MM_OPT;
 
 export LANG=en_US.UTF-8
-export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:/Users/ghedamat/Dev/GO/bin
 export PATH="$PATH:$NPM_GLOBAL/bin"
@@ -112,7 +112,7 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/bin"
-export PATH="~/.ansible-env/bin:$PATH"
+export PATH="$PATH:~/.ansible-env/bin"
 export VISUAL=/usr/bin/vim
 export GOPATH=/Users/ghedamat/Dev/GO
 export EDITOR=vim
