@@ -130,7 +130,7 @@ alias emacs='emacs -nw'
 alias today='git log --committer="ghedamat" --since="6am" --format=%s'
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
 alias ssh=color-ssh
-alias ubu="ssh ubu18 -t tmux attach-session"
+alias ubu="ssh ubu14 -t tmux attach-session"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
