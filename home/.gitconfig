@@ -42,3 +42,5 @@
   tool = custom
 [init]
 	templatedir = ~/.git_template
+[github]
+	user = ghedamat
