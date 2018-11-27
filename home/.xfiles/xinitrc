@@ -15,7 +15,7 @@ setxkbmap -option altwin:swap_alt_win
 #/home/tha/.dropbox-dist/dropbox &
 #/usr/local/bin/dropbox.py start
 
-/usr/local/bin/xflux -l 43.654692 -g -79.418367
+#/usr/local/bin/xflux -l 43.654692 -g -79.418367
 eval `ssh-agent`
 ssh-add
 #exec /usr/local/bin/wmii -r /home/tha/.wmii/wmiirc
