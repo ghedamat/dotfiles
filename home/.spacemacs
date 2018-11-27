@@ -364,6 +364,8 @@ layers configuration. You are free to put any user code."
   (use-package magithub
     :after magit
     :config (magithub-feature-autoinject t))
+
+  (xterm-mouse-mode -1)
   )
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
