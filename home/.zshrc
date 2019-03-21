@@ -92,6 +92,8 @@ color-ssh() {
 			colorterm.sh prod
 	elif [[ "$*" =~ "dev" ]]; then
 			colorterm.sh dev
+	elif [[ "$*" =~ "ghedamat-roof" ]]; then
+			colorterm.sh ghedamat-roof
 	else
 			colorterm.sh other
 	fi
@@ -138,3 +140,8 @@ export NVM_DIR="/home/ghedamat/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 eval `keychain --eval --agents ssh id_rsa 2018_id_rsa`
+
+alias docker="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker"
+alias docker-compose="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker-compose"
+alias build-latest="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker build . -t eternal-sledgehammer/base:latest -f ./docker/Dockerfile.base --build-arg UID=$(id -u ${whoami}) --build-arg GID=$(id -u ${whoami})"
+export PATH="$HOME/.cargo/bin:$PATH"

@@ -1,24 +1,18 @@
 xmodmap .Xmodmap
-#xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
-#xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
-#xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+xinput set-int-prop "TPPS/2 Elan TrackPoint" "Evdev Wheel Emulation" 8 1
+xinput set-int-prop "TPPS/2 Elan TrackPoint" "Evdev Wheel Emulation Button" 8 2
+xinput set-int-prop "TPPS/2 Elan TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+
+xinput --disable 13
 synclient "TapButton2"=3
 synclient "TapButton3"=2
 
-#export BROWSER=google-chrome-stable
 xrdb -merge ~/.Xdefaults
 xrdb -merge ~/.Xresources
 setxkbmap -option ctrl:nocaps
 setxkbmap -option altwin:swap_alt_win
 
-#xrdb -load /home/tha/.Xresources
-#/home/tha/.dropbox-dist/dropbox &
-#/usr/local/bin/dropbox.py start
-
-#/usr/local/bin/xflux -l 43.654692 -g -79.418367
-eval `ssh-agent`
-ssh-add
-#exec /usr/local/bin/wmii -r /home/tha/.wmii/wmiirc
-#exec /usr/bin/enlightenment_start
 exec /usr/bin/i3
-#exec startxfce4 --with-ck-launch
