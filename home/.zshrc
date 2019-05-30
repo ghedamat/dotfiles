@@ -134,6 +134,7 @@ alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_
 alias ssh=color-ssh
 alias ubu="ssh ubu14 -t tmux attach-session"
 
+[ -f /usr/share/zsh/site-contrib/fzf.zsh ] && source /usr/share/zsh/site-contrib/fzf.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVM_DIR="/home/ghedamat/.nvm"
@@ -145,3 +146,5 @@ alias docker="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker"
 alias docker-compose="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker-compose"
 alias build-latest="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker build . -t eternal-sledgehammer/base:latest -f ./docker/Dockerfile.base --build-arg UID=$(id -u ${whoami}) --build-arg GID=$(id -u ${whoami})"
 export PATH="$HOME/.cargo/bin:$PATH"
+
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"

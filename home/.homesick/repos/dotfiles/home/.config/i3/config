@@ -159,11 +159,11 @@ for_window [class="Skype"] split vertical
 for_window [class="Pidgin"] split vertical
 
 assign [class="Firefox"] 2: web
-assign [class="Google Chrome"] 2: web
+assign [title="Google Chrome"] 2: web
 assign [class="Skype"] 3: chat
 assign [class="Pidgin"] 3: chat
 assign [class="Telegram"] 3: chat
-assign [title="general | brochat Slack"] |
+assign [title="Slack"] 3: chat
 
 bindsym $mod+n workspace next
 bindsym $mod+b workspace prev
