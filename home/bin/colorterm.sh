@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ "$TERM" = "screen"* ]] && [[ -n "$TMUX" ]]; then
   if [ "$1" == "prod" ]; then

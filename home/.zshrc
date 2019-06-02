@@ -133,9 +133,13 @@ alias today='git log --committer="ghedamat" --since="6am" --format=%s'
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
 alias ssh=color-ssh
 alias ubu="ssh ubu14 -t tmux attach-session"
+alias vim=nvim
 
 [ -f /usr/share/zsh/site-contrib/fzf.zsh ] && source /usr/share/zsh/site-contrib/fzf.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+fi
 
 export NVM_DIR="/home/ghedamat/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
