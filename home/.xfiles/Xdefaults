@@ -82,7 +82,7 @@ urxvt.foreground: 7
 urxvt.background: 0
 URxvt.urlLauncher:      /usr/bin/chromium
 URxvt.matcher.button:   1
-Rxvt.font: xft:DejaVu Sans Mono for Powerline:size=9
+Rxvt.font: xft:DejaVu Sans Mono for Powerline:size=12
 URxvt.colorUL: #4682B4
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 UTxvt*allowSendEvents: true

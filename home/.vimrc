@@ -76,6 +76,7 @@ Plugin 'junegunn/fzf.vim'
 
 Plugin 'hashivim/vim-terraform'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'LnL7/vim-nix'
 
 call vundle#end()    
 

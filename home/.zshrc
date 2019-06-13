@@ -7,7 +7,7 @@ export ZSH=/home/ghedamat/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="gentoo"
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+#source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +51,7 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump rbenv)
+plugins=(git rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -152,3 +152,4 @@ alias build-latest="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker bui
 export PATH="$HOME/.cargo/bin:$PATH"
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
