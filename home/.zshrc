@@ -154,3 +154,16 @@ export PATH="$PATH:$HOME/.npm-prefix/bin"
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+dockercompose-wrapper()
+{
+    # If in a git repo - call git mv. otherwise- call mv
+    if [ -f docker-compose-linux.yml ];
+    then
+      docker-compose -f docker-compose-linux.yml "$@"
+    else
+      docker-compose "$@"
+    fi
+}
+
+alias docker-compose=dockercompose-wrapper
