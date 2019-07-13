@@ -150,6 +150,7 @@ alias docker="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker"
 alias docker-compose="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker-compose"
 alias build-latest="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker build . -t eternal-sledgehammer/base:latest -f ./docker/Dockerfile.base --build-arg UID=$(id -u ${whoami}) --build-arg GID=$(id -u ${whoami})"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/.npm-prefix/bin"
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

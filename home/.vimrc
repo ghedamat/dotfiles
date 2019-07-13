@@ -12,7 +12,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlp.vim'
 Plugin 'mileszs/ack.vim' 
 Plugin 'Blackrush/vim-gocode' 
-Plugin 'scrooloose/syntastic' 
+Plugin 'vim-syntastic/syntastic' 
 Plugin 'kana/vim-textobj-user'
 
 Plugin 'altercation/vim-colors-solarized.git'
@@ -273,3 +273,6 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+" rubocop is very slow
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop']

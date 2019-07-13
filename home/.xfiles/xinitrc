@@ -15,4 +15,5 @@ xrdb -merge ~/.Xresources
 setxkbmap -option ctrl:nocaps
 setxkbmap -option altwin:swap_alt_win
 
+#exec nm-applet
 exec /run/current-system/sw/bin/i3
