@@ -88,6 +88,8 @@ values."
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     yasnippet
+                                    smartparens
+                                    rubocop
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -327,6 +329,9 @@ layers configuration. You are free to put any user code."
   (define-key evil-normal-state-map (kbd "SPC SPC") 'alternate-buffer)
   (global-company-mode)
   (setq-default evil-escape-key-sequence "jk")
+  (setq-default company-idle-delay 3000)
+  (define-key evil-insert-state-map (kbd "C-n") 'company-complete)
+
 
   ;(indent-guide-global-mode)
 

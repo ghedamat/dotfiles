@@ -108,13 +108,14 @@ PERL_MM_OPT="INSTALL_BASE=/Users/ghedamat/perl5"; export PERL_MM_OPT;
 export LANG=en_US.UTF-8
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:~/bin
-export PATH=$PATH:/Users/ghedamat/Dev/GO/bin
 export PATH="$PATH:$NPM_GLOBAL/bin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:~/.ansible-env/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.npm-prefix/bin"
 export VISUAL=/usr/bin/vim
 export GOPATH=/Users/ghedamat/Dev/GO
 export EDITOR=vim
@@ -149,9 +150,6 @@ eval `keychain --eval --agents ssh id_rsa 2018_id_rsa`
 alias docker="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker"
 alias docker-compose="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker-compose"
 alias build-latest="env UID=$(id -u ${whoami}) GID=$(id -g ${whoami}) docker build . -t eternal-sledgehammer/base:latest -f ./docker/Dockerfile.base --build-arg UID=$(id -u ${whoami}) --build-arg GID=$(id -u ${whoami})"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$PATH:$HOME/.npm-prefix/bin"
-
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
