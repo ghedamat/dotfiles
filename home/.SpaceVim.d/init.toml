@@ -42,7 +42,6 @@ auto-completion-tab-key-behavior = "smart"
   name = "lsp"
   filetypes = [
     "javascript",
-    "ocalm",
     "ruby"
   ]
   [layers.override_cmd]
