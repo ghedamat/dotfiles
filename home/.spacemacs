@@ -57,12 +57,11 @@ values."
      haskell
      osx
      (auto-completion :variables
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-enable-snippets-in-popup t
+                      ;auto-completion-enable-help-tooltip t
+                      ;auto-completion-enable-snippets-in-popup t
                       spacemacs-default-company-backends '(company-files company-capf company-elm company-tabnine))
 
-     (syntax-checking :variables
-                      syntax-checking-enable-tooltips nil)
+     ;(syntax-checking :variables syntax-checking-enable-tooltips nil)
      elixir
      erlang
      yaml

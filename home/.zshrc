@@ -5,7 +5,7 @@ export ZSH=/home/ghedamat/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gentoo"
+ZSH_THEME="minimal"
 
 #source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
@@ -117,7 +117,7 @@ export PATH="$PATH:~/.ansible-env/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.npm-prefix/bin"
 export PATH="$PATH:$HOME/npm-prefix/bin"
-export VISUAL=/usr/bin/vim
+export VISUAL=/usr/bin/nvim
 export GOPATH=/Users/ghedamat/Dev/GO
 export EDITOR=vim
 export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
