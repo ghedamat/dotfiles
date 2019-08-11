@@ -63,6 +63,12 @@ name = "lang#ruby"
 [[layers]]
 name = "lang#javascript"
 
+[[layers]]
+name = "lang#haskell"
+
+[[layers]]
+name = "git"
+
 # reason ml layer
 [[custom_plugins]]
    name = "reasonml-editor/vim-reason-plus"
