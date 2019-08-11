@@ -116,6 +116,7 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:~/.ansible-env/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.npm-prefix/bin"
+export PATH="$PATH:$HOME/npm-prefix/bin"
 export VISUAL=/usr/bin/vim
 export GOPATH=/Users/ghedamat/Dev/GO
 export EDITOR=vim
@@ -141,6 +142,7 @@ alias vim=nvim
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
 fi
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 export NVM_DIR="/home/ghedamat/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
