@@ -32,6 +32,8 @@
     filetree_direction = "left"
     relativenumber = false
 
+    disabled_plugins = ["vim-surround"]
+
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
@@ -42,7 +44,8 @@ auto-completion-tab-key-behavior = "smart"
   name = "lsp"
   filetypes = [
     "javascript",
-    "ruby"
+    "ruby",
+    "rust"
   ]
   [layers.override_cmd]
     ocalm = ["reason-language-server"]
@@ -67,7 +70,13 @@ name = "lang#javascript"
 name = "lang#haskell"
 
 [[layers]]
+name = "lang#rust"
+
+[[layers]]
 name = "git"
+
+[[layers]]
+name = "test"
 
 # reason ml layer
 [[custom_plugins]]
