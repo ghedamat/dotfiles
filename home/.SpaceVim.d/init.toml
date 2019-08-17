@@ -33,6 +33,7 @@
     relativenumber = false
 
     disabled_plugins = ["vim-surround"]
+    git_plugin = 'fugitive'
 
 # Enable autocomplete layer
 [[layers]]
@@ -73,7 +74,8 @@ name = "lang#haskell"
 name = "lang#rust"
 
 [[layers]]
-name = "git"
+  name = "git"
+  git-plugin = "fugitive"
 
 [[layers]]
 name = "test"
