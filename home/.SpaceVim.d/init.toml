@@ -33,13 +33,9 @@
     relativenumber = false
 
     disabled_plugins = ["vim-surround"]
-    git_plugin = 'fugitive'
 
-# Enable autocomplete layer
 [[layers]]
-name = 'autocomplete'
-auto-completion-return-key-behavior = "complete"
-auto-completion-tab-key-behavior = "smart"
+  name = "autocomplete"
 
 [[layers]]
   name = "lsp"
@@ -89,5 +85,10 @@ name = "test"
 # vim nix
 [[custom_plugins]]
    name = "LnL7/vim-nix"
+   # note: you need to disable merged feature
+   merged = false
+
+[[custom_plugins]]
+   name = "SirVer/ultisnips"
    # note: you need to disable merged feature
    merged = false

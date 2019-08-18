@@ -1,24 +1,36 @@
+function! myspacevim#before() abort
+  call SpaceVim#logger#info('myspacevim#before called')
+  call add(g:spacevim_custom_plugins, ['neoclide/coc.nvim', {'rev': 'release', 'merged': 0, 'build': './install.sh'}])
+endfunction
+
 function! myspacevim#after() abort
   " alternate file mapping
   nnoremap <space><space> <c-^>
 
   " alternate completion cycling
-  "inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-  "inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+  inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+  inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
-  " reasonml
-  let g:LanguageClient_serverCommands = {
-        \ 'reason': ['/home/ghedamat/bin/reason-language-server']
-        \ }
-  " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
-  " nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<cr>
-  " nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
-endfunction
+  " coc vim inoremap <silent><expr> <c-space> coc#refresh()
 
-function! myspacevim#before() abort
-  call SpaceVim#logger#info('myspacevim#before called')
+  call coc#config('coc.preferences', {
+        \ "autoTrigger": "always",
+        \ "maxCompleteItemCount": 10,
+        \ "codeLens.enable": 1,
+        \ "diagnostic.virtualText": 1,
+        \})
 
-  " VIM COC CONFIG
+  let s:coc_extensions = [
+        \ 'coc-dictionary',
+        \ 'coc-json',
+        \ 'coc-tag',
+        \ 'coc-rls',
+        \ 'coc-ultisnips',
+        \]
+
+  for extension in s:coc_extensions
+    call coc#add_extension(extension)
+  endfor
   " Use `[c` and `]c` to navigate diagnostics
   nmap <silent> [c <Plug>(coc-diagnostic-prev)
   nmap <silent> ]c <Plug>(coc-diagnostic-next)
