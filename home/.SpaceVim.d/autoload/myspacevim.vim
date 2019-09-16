@@ -4,6 +4,11 @@ function! myspacevim#before() abort
 endfunction
 
 function! myspacevim#after() abort
+  EnableWhitespace
+
+  nnoremap H 0
+  nnoremap L $
+
   " alternate file mapping
   nnoremap <space><space> <c-^>
 
@@ -93,8 +98,7 @@ function! myspacevim#after() abort
   " use `:OR` for organize import of current buffer
   command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-  " Add status line support, for integration with other plugin, checkout `:h coc-status`
-  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+  echo "bar"
 
 endfunction
 

@@ -16,5 +16,5 @@ setxkbmap -option ctrl:nocaps
 setxkbmap -option altwin:swap_alt_win
 compton -b
 
-#exec nm-applet
+exec nm-applet &
 exec /run/current-system/sw/bin/i3
