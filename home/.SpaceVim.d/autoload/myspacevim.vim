@@ -9,6 +9,9 @@ function! myspacevim#after() abort
   nnoremap H 0
   nnoremap L $
 
+  " fixes mobaxterm https://github.com/neovim/neovim/issues/3692
+  set notermguicolors
+
   " alternate file mapping
   nnoremap <space><space> <c-^>
 

@@ -64,6 +64,9 @@ name = "lang#ruby"
 name = "lang#javascript"
 
 [[layers]]
+name = "lang#vue"
+
+[[layers]]
 name = "lang#haskell"
 
 [[layers]]
