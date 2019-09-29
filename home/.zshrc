@@ -166,5 +166,3 @@ dockercompose-wrapper()
       docker-compose "$@"
     fi
 }
-
-alias docker-compose=dockercompose-wrapper

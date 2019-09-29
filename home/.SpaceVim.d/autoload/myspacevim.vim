@@ -4,8 +4,15 @@ function! myspacevim#before() abort
 endfunction
 
 function! myspacevim#after() abort
+  " trailing whitespace
   EnableWhitespace
 
+  " custom indent
+  autocmd FileType rust set shiftwidth=4
+  autocmd FileType rust set softtabstop=4
+  let g:rustfmt_autosave = 1
+
+  " H L mappings
   nnoremap H 0
   nnoremap L $
 
