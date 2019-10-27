@@ -42,6 +42,7 @@ function! myspacevim#after() abort
         \ 'coc-rls',
         \ 'coc-ultisnips',
         \ 'coc-tabnine',
+        \ 'coc-tsserver',
         \]
 
   for extension in s:coc_extensions

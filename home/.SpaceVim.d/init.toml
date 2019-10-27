@@ -98,3 +98,13 @@ name = "test"
    name = "SirVer/ultisnips"
    # note: you need to disable merged feature
    merged = false
+
+[[custom_plugins]]
+   name = "joukevandermaas/vim-ember-hbs"
+   # note: you need to disable merged feature
+   merged = false
+
+[[custom_plugins]]
+   name = "mustache/vim-mustache-handlebars"
+   # note: you need to disable merged feature
+   merged = false
