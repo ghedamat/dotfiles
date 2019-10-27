@@ -17,4 +17,4 @@ setxkbmap -option altwin:swap_alt_win
 compton -b
 
 exec nm-applet &
-exec /run/current-system/sw/bin/i3
+exec /run/current-system/sw/bin/i3  --shmlog-size=26214400
