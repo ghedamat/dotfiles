@@ -43,6 +43,7 @@ function! myspacevim#after() abort
         \ 'coc-ultisnips',
         \ 'coc-tabnine',
         \ 'coc-tsserver',
+        \ 'coc-solargraph',
         \]
 
   for extension in s:coc_extensions
