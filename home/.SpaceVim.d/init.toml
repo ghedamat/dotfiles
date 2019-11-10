@@ -38,6 +38,9 @@
   name = "autocomplete"
 
 [[layers]]
+name = "checkers"
+
+[[layers]]
   name = "lsp"
   filetypes = [
     "javascript",

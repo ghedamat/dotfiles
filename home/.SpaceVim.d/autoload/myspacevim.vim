@@ -28,11 +28,14 @@ function! myspacevim#after() abort
 
   " coc vim inoremap <silent><expr> <c-space> coc#refresh()
 
+  let g:neomake_typescript_enabled_makers = ['eslint']
+
   call coc#config('coc.preferences', {
         \ "autoTrigger": "always",
         \ "maxCompleteItemCount": 10,
         \ "codeLens.enable": 1,
         \ "diagnostic.virtualText": 1,
+        \ "eslint.fileTypes": ["javascript", "typescript"]
         \})
 
   let s:coc_extensions = [
@@ -44,6 +47,7 @@ function! myspacevim#after() abort
         \ 'coc-tabnine',
         \ 'coc-tsserver',
         \ 'coc-solargraph',
+        \ 'coc-eslint',
         \]
 
   for extension in s:coc_extensions
