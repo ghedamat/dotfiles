@@ -33,6 +33,7 @@
     relativenumber = false
 
     disabled_plugins = ["vim-surround"]
+    enable_ale = true
 
 [[layers]]
   name = "autocomplete"
