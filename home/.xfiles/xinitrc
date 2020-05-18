@@ -12,8 +12,8 @@ synclient "TapButton3"=2
 
 xrdb -merge ~/.Xdefaults
 xrdb -merge ~/.Xresources
-#setxkbmap -option ctrl:nocaps
-#setxkbmap -option altwin:swap_alt_win
+setxkbmap -option ctrl:nocaps
+setxkbmap -option altwin:swap_alt_win
 compton -b
 
 exec nm-applet &
